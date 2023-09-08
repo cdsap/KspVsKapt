@@ -44,3 +44,10 @@ plugins {
     id("io.github.cdsap.kotlinprocess") version "0.1.5"
     id("io.github.cdsap.gradleprocess") version "0.1.0"
 }
+
+
+allprojects {
+    tasks.withType<JavaCompile>().configureEach {
+        options.isFork = true
+    }
+}
