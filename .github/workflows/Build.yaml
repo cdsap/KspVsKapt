@@ -35,9 +35,8 @@ jobs:
         uses: gradle/gradle-build-action@v2
 
       - name: Build all build type and flavor permutations
-
         run: |
-            export JAVA_OPTS="-javaagent:dd-java-agent.jar"
+          export JAVA_OPTS="-javaagent:dd-java-agent.jar"
           ./gradlew assemble
 
       - name: Upload build outputs (APKs)
