@@ -48,7 +48,7 @@ plugins {
 
 allprojects {
     tasks.withType<JavaCompile>().configureEach {
-        options.isFork = true
+        options.isFork = false
 
     }
 }
