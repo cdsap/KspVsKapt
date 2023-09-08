@@ -31,7 +31,7 @@ jobs:
       - name: Build all build type and flavor permutations
         run: |
           export JAVA_OPTS="-javaagent:dd-java-agent.jar"
-          ./gradlew assemble
+          ./gradlew :app:assembleProdDebug
         env:
           GRADLE_ENTERPRISE_ACCESS_KEY: ${{ secrets.GE_KEY }}
 
@@ -60,6 +60,6 @@ jobs:
       - name: Run all local screenshot tests (Roborazzi)
         id: screenshotsverify
         continue-on-error: true
-        run: ./gradlew assemble
+        run: ./gradlew :app:assembleProdDebug
         env:
             GRADLE_ENTERPRISE_ACCESS_KEY: ${{ secrets.GE_KEY }}
