@@ -3,7 +3,7 @@ name: Build
 on:
   push:
     branches:
-      - main
+      - test_java_with_8_3_no_fork
   pull_request:
 
 concurrency:
@@ -23,7 +23,7 @@ jobs:
         uses: gradle/wrapper-validation-action@v1
 
       - name: Copy CI gradle.properties
-        run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties        
+        run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
 
       - name: Set up JDK 17
         uses: actions/setup-java@v3
@@ -34,11 +34,11 @@ jobs:
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
 
-      - name: Check spotless
-        run: ./gradlew spotlessCheck --init-script gradle/init.gradle.kts --no-configuration-cache
-
       - name: Build all build type and flavor permutations
-        run: ./gradlew assemble
+
+        run: |
+            export JAVA_OPTS="-javaagent:dd-java-agent.jar"
+          ./gradlew assemble
 
       - name: Upload build outputs (APKs)
         uses: actions/upload-artifact@v3
