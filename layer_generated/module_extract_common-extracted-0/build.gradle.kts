@@ -1,5 +1,6 @@
+
 /*
- * Copyright 2023 The Android Open Source Project
+ * Copyright 2022 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,24 +14,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 plugins {
-    id("nowinandroid.android.feature")
-    id("nowinandroid.android.library.compose")
+    id("nowinandroid.android.library")
     id("nowinandroid.android.library.jacoco")
+    id("nowinandroid.android.hilt")
 }
-
 android {
-    namespace = "com.google.samples.apps.nowinandroid.feature.search"
+    namespace = "com.google.samples.apps.nowinandroid.core.common"
 }
-
 dependencies {
-
-implementation(project(":layer_generated:module_extract_common-extracted-0"))
-    implementation(project(":feature:bookmarks"))
-    implementation(project(":feature:foryou"))
-    implementation(project(":feature:interests"))
-    implementation(libs.kotlinx.datetime)
+implementation(project(":core:common"))
 }
-
-

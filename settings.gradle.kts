@@ -76,3 +76,5 @@ include(":lint")
 include(":sync:work")
 include(":sync:sync-test")
 include(":ui-test-hilt-manifest")
+
+ include(":layer_generated:module_extract_common-extracted-0")

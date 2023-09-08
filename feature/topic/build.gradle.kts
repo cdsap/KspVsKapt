@@ -25,5 +25,7 @@ android {
 }
 
 dependencies {
+
+implementation(project(":layer_generated:module_extract_common-extracted-0"))
     implementation(libs.kotlinx.datetime)
 }
