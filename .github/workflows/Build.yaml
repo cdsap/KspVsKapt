@@ -30,7 +30,6 @@ jobs:
 
       - name: Build all build type and flavor permutations
         run: |
-          export JAVA_OPTS="-javaagent:dd-java-agent.jar -Ddd.profiling.enabled=true"
           ./gradlew :app:assembleProdDebug
         env:
           GRADLE_ENTERPRISE_ACCESS_KEY: ${{ secrets.GE_KEY }}

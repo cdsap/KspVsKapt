@@ -48,7 +48,7 @@ plugins {
 
 allprojects {
     tasks.withType<JavaCompile>().configureEach {
-        options.isFork = false
-
+        options.isFork = true
+        options.forkOptions.jvmArgs = listOf("-javaagent:dd-java-agent.jar","-Ddd.profiling.enabled=true")
     }
 }
