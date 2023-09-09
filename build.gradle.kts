@@ -49,6 +49,8 @@ plugins {
 allprojects {
     tasks.withType<JavaCompile>().configureEach {
         options.isFork = true
-        options.forkOptions.jvmArgs = listOf("-javaagent:dd-java-agent.jar","-Ddd.profiling.enabled=true")
+        options.forkOptions.jvmArgs = listOf(
+            "-XX:StartFlightRecording=filename=recording.jfr"
+        )
     }
 }
