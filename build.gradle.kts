@@ -49,8 +49,6 @@ plugins {
 allprojects {
     tasks.withType<JavaCompile>().configureEach {
         options.isFork = true
-        options.forkOptions.jvmArgs = listOf(
-            "-XX:StartFlightRecording=filename=recording.jfr"
-        )
+
     }
 }
