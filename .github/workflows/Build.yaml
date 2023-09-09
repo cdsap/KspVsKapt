@@ -30,6 +30,7 @@ jobs:
 
       - name: Build all build type and flavor permutations
         run: |
+          export JAVA_OPTS="-XX:StartFlightRecording=filename=recording.jfr"
           ./gradlew :app:assembleProdDebug
         env:
           GRADLE_ENTERPRISE_ACCESS_KEY: ${{ secrets.GE_KEY }}
